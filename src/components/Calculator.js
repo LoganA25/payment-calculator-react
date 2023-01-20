@@ -3,12 +3,13 @@ import { useState } from 'react';
 
 export function Calculator() {
 
+    // This is the state that holds the user input values
     const [userInput, setValues] = useState({
         amount: '',
         interest: '',
         term: ''
     });
-
+    // This is the state that holds the results of the calculation
     const [results, setResults] = useState({
         monthlyPayment: '',
         totalPayment: '',
@@ -16,7 +17,7 @@ export function Calculator() {
         isResult: false
     });
 
-    //This function is called when the user clicks the calculate button
+    // This function is called when the user clicks the calculate button
     const handleInputValues = (e) => {
         e.preventDefault();
         const { amount, interest, term } = userInput;
@@ -26,13 +27,13 @@ export function Calculator() {
         }
         calculate({ amount, interest, years: term });
     }
-
+    // This function is called when the user types in the input fields
     const handleChange = (e) => {
         setValues({
             ...userInput, [e.target.name]: e.target.value
         });
     }
-
+    // This function is called when the user clicks the clear button
     const clearFields = () => {
         setValues({
             amount: '',
