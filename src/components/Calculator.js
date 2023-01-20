@@ -80,7 +80,7 @@ export function Calculator() {
     return (
         <>
             <div className="h-screen bg-gray-200 flex justify-center items-center">
-                <div className="lg:w-2/5 md:w-1/2 w-2/3">
+                <div className='space-y-4'>
                     <form className="bg-white p-10 rounded-lg shadow-lg min-w-full">
                         <h1 className="text-2xl font-bold sm:text-3xl text-center">Payment Calculator</h1>
                         <div>
@@ -95,29 +95,30 @@ export function Calculator() {
                             <label className="text-gray-800 font-semibold block my-3 text-md" for="username">Loan Term (Years)</label>
                             <input className="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" type="number" name='term' value={userInput.term} onChange={handleChange} />
                         </div>
-                        <div className='text-center space-y-4 space-x-4'>
+                        <div className='text-center space-y-3 space-x-4'>
                             <Button text={'Calculate'} onClick={handleInputValues} />
                             <Button text={'Clear'} onClick={clearFields} />
                         </div>
-                        <div>
-                            <table className='table-fixed text-center'>
-                                <thead>
-                                    <tr>
-                                        <th>Monthly Payment</th>
-                                        <th>Total Payment</th>
-                                        <th>Total Interest</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>{results.monthlyPayment}</td>
-                                        <td>{results.totalPayment}</td>
-                                        <td>{results.totalInterest}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+
                     </form>
+                    <div className="bg-white p-3 rounded-lg shadow-lg min-w-full">
+                        <table className='min-w-full text-center'>
+                            <thead>
+                                <tr>
+                                    <th>Monthly <br /> Payment</th>
+                                    <th>Total <br /> Payment</th>
+                                    <th>Total <br /> Interest</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{results.monthlyPayment}</td>
+                                    <td>{results.totalPayment}</td>
+                                    <td>{results.totalInterest}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </>
